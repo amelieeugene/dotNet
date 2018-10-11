@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\projects\dotNet\RestApp1\RestApp1\Models\SalesModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\projects\dotNet\dotNet\RestApp1\Models\SalesModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

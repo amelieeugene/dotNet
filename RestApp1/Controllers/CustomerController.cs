@@ -1,9 +1,9 @@
-﻿using RestApp1.Models;
+﻿using Newtonsoft.Json;
+using RestApp1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+
 using System.Web.Http;
 
 
@@ -36,9 +36,28 @@ namespace RestApp1.Controllers
     }
 
     // POST api/<controller>
-    public void Post([FromBody]string value)
+    public void Post([FromBody]dynamic data)
     {
+      //string ss = (string)data;
+      //customer newCust = JsonConvert.DeserializeObject<customer>(ss);
+      customer newCust = new customer {name = data.name};
+      edb.customers.Add(newCust);      
+      edb.SaveChanges();
+
     }
+
+    [Route("NewCustomer")]
+    [HttpPost]
+    public void NewCustomer([FromBody]dynamic data)
+    {
+      //string ss = (string)data;
+      //customer newCust = JsonConvert.DeserializeObject<customer>(ss);
+      customer newCust = new customer { name = data.name };
+      edb.customers.Add(newCust);
+      edb.SaveChanges();
+
+    }
+
 
     // PUT api/<controller>/5
     public void Put(int id, [FromBody]string value)

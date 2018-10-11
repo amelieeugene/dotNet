@@ -9,27 +9,26 @@
 
 namespace RestApp1.Models
 {
-  using System;
-  using System.Data.Entity;
-  using System.Data.Entity.Infrastructure;
-
-  public partial class sandboxEntities : DbContext
-  {
-    public sandboxEntities()
-        : base("name=sandboxEntities")
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
+    public partial class sandboxEntities : DbContext
     {
-      this.Configuration.ProxyCreationEnabled = false;
+        public sandboxEntities()
+            : base("name=sandboxEntities")
+        {
+        }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
+        public virtual DbSet<customer> customers { get; set; }
+        public virtual DbSet<order> orders { get; set; }
+        public virtual DbSet<order_item> order_item { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<item> items { get; set; }
     }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-      throw new UnintentionalCodeFirstException();
-    }
-
-    public virtual DbSet<customer> customers { get; set; }
-    public virtual DbSet<order> orders { get; set; }
-    public virtual DbSet<order_item> order_item { get; set; }
-    public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-    public virtual DbSet<item> items { get; set; }
-  }
 }
