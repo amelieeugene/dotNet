@@ -25,5 +25,10 @@ namespace RestApp1
                   .SerializerSettings
                   .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
     }
+
+    protected void Session_Start(object sender, EventArgs e)
+    {
+      Session["adminLoggedIn"] = false;
+    }
   }
 }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4673b2e113c44849b22673ebfcc18276" Name="Diagram1">
+      <Diagram DiagramId="27abd550e15a46c983c6c8a2174cba0c" Name="Diagram1">
         <EntityTypeShape EntityType="sandboxModel.customer" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="sandboxModel.order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="sandboxModel.order_item" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
@@ -13,8 +13,6 @@
         <AssociationConnector Association="sandboxModel.FK_order_customer" ManuallyRouted="false" />
         <AssociationConnector Association="sandboxModel.FK_order_item_order" ManuallyRouted="false" />
         <AssociationConnector Association="sandboxModel.FK_order_item_item" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="sandboxModel.announcement" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="sandboxModel.club_event" Width="1.5" PointX="0.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

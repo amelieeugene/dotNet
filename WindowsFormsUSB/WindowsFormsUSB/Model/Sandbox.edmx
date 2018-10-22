@@ -4,27 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="sandboxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="announcement">
-          <Key>
-            <PropertyRef Name="ID_announcement" />
-          </Key>
-          <Property Name="ID_announcement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="topic" Type="varchar" MaxLength="50" />
-          <Property Name="detail" Type="varchar" MaxLength="500" />
-          <Property Name="announceTime" Type="datetime" />
-          <Property Name="status" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="club_event">
-          <Key>
-            <PropertyRef Name="ID_event" />
-          </Key>
-          <Property Name="ID_event" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="50" />
-          <Property Name="description" Type="varchar" MaxLength="500" />
-          <Property Name="schedule_time" Type="datetime" />
-          <Property Name="location" Type="varchar" MaxLength="50" />
-        </EntityType>
+      <Schema Namespace="sandboxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="customer">
           <Key>
             <PropertyRef Name="id" />
@@ -109,8 +89,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="sandboxModelStoreContainer">
-          <EntitySet Name="announcement" EntityType="Self.announcement" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="club_event" EntityType="Self.club_event" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="order_item" EntityType="Self.order_item" Schema="dbo" store:Type="Tables" />
@@ -129,7 +107,8 @@
             <End Role="order_item" EntitySet="order_item" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="sandboxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -137,7 +116,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="orders" Relationship="Self.FK_order_customer" FromRole="customer" ToRole="order" />
         </EntityType>
@@ -145,7 +124,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_customer" Type="Int32" Nullable="false" />
           <Property Name="orderDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="customer" Relationship="Self.FK_order_customer" FromRole="order" ToRole="customer" />
@@ -155,7 +134,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_order" Type="Int32" Nullable="false" />
           <Property Name="id_item" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
@@ -176,7 +155,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="order_item" Relationship="Self.FK_order_item_item" FromRole="item" ToRole="order_item" />
         </EntityType>
@@ -240,29 +219,7 @@
             <End Role="item" EntitySet="items" />
             <End Role="order_item" EntitySet="order_item" />
           </AssociationSet>
-          <EntitySet Name="announcements" EntityType="sandboxModel.announcement" />
-          <EntitySet Name="club_event" EntityType="sandboxModel.club_event" />
         </EntityContainer>
-        <EntityType Name="announcement">
-          <Key>
-            <PropertyRef Name="ID_announcement" />
-          </Key>
-          <Property Name="ID_announcement" Type="Int32" Nullable="false" />
-          <Property Name="topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="announceTime" Type="DateTime" Precision="3" />
-          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="club_event">
-          <Key>
-            <PropertyRef Name="ID_event" />
-          </Key>
-          <Property Name="ID_event" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="schedule_time" Type="DateTime" Precision="3" />
-          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -312,28 +269,6 @@
               <MappingFragment StoreEntitySet="item">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="announcements">
-            <EntityTypeMapping TypeName="sandboxModel.announcement">
-              <MappingFragment StoreEntitySet="announcement">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="announceTime" ColumnName="announceTime" />
-                <ScalarProperty Name="detail" ColumnName="detail" />
-                <ScalarProperty Name="topic" ColumnName="topic" />
-                <ScalarProperty Name="ID_announcement" ColumnName="ID_announcement" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="club_event">
-            <EntityTypeMapping TypeName="sandboxModel.club_event">
-              <MappingFragment StoreEntitySet="club_event">
-                <ScalarProperty Name="location" ColumnName="location" />
-                <ScalarProperty Name="schedule_time" ColumnName="schedule_time" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="ID_event" ColumnName="ID_event" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-
-using System.Web.Http;
 using System.Web.Mvc;
-using Newtonsoft.Json;
 using RestApp1.Models;
 
 namespace RestApp1.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
     {
     sandboxEntities edb;
 
@@ -32,16 +28,16 @@ namespace RestApp1.Controllers
       return View();
         }
 
-    [System.Web.Http.Route("NewCustomer")]
-    [System.Web.Http.HttpPost]
-    public void NewCustomer([FromBody]string data)
-    {
-      //string ss = (string)data;
-      customer newCust = JsonConvert.DeserializeObject<customer>(data);
-      //customer newCust = new customer { name = data.name };
-      edb.customers.Add(newCust);
-      edb.SaveChanges();
+    //[System.Web.Http.Route("NewCustomer")]
+    //[System.Web.Http.HttpPost]
+    //public void NewCustomer([FromBody]string data)
+    //{
+    //  //string ss = (string)data;
+    //  customer newCust = JsonConvert.DeserializeObject<customer>(data);
+    //  //customer newCust = new customer { name = data.name };
+    //  edb.customers.Add(newCust);
+    //  edb.SaveChanges();
 
-    }
+    //}
   }
 }

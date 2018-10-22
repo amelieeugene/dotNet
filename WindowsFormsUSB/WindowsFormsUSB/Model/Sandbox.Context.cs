@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RestApp1.Models
+namespace WindowsFormsUSB.Model
 {
     using System;
     using System.Data.Entity;
@@ -30,7 +30,5 @@ namespace RestApp1.Models
         public virtual DbSet<order_item> order_item { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<item> items { get; set; }
-        public virtual DbSet<announcement> announcements { get; set; }
-        public virtual DbSet<club_event> club_event { get; set; }
     }
 }

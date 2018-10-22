@@ -1,0 +1,27 @@
+﻿@model RestApp1.Models.ClubModel
+
+@{
+  ViewBag.Title = "CHS 3D Modeling/Printing Club - Events";
+  Layout = "~/Views/Shared/_Layout3DClub.cshtml";
+}
+
+<h2>Club Events</h2>
+
+Upcoming Events
+@foreach (RestApp1.Models.club_event evnt in Model.Upcoming_events)
+{
+  @evnt.name
+  <br />
+}
+
+<br />
+
+@foreach (RestApp1.Models.club_event evnt in Model.Past_events)
+{
+  @evnt.name
+  <br />
+}
+
+Past Events
+
+
