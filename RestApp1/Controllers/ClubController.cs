@@ -27,8 +27,7 @@ namespace RestApp1.Controllers
 
     public ActionResult Events()
     {
-      var evns = (from evt in edb.club_event
-                  where evt.schedule_time >= DateTime.Now
+      var evns = (from evt in edb.club_event                 
                   select evt).ToList();
 
       var upcomingevts = (from ev in evns
@@ -44,7 +43,7 @@ namespace RestApp1.Controllers
       clubModel.Past_events = pastevts;
       ViewBag.IsAdmin = (bool)Session["adminLoggedIn"];
 
-      return View(clubModel);
+      return View("Events", clubModel);
     }
 
     public ActionResult JoinUs()
@@ -61,12 +60,33 @@ namespace RestApp1.Controllers
         return View();
       else
       {
-        announcement newAnno = new announcement { topic = Request["topic"], detail = Request["detail"] };
+        announcement newAnno = new announcement
+        { topic = Request["topic"], detail = Request["detail"] };
         newAnno.announceTime = DateTime.Now;
         edb.announcements.Add(newAnno);
         edb.SaveChanges();
 
         return GetClubHomeView();
+      }
+    }
+
+    public ActionResult NewEvent()
+    {
+      ViewBag.IsAdmin = (bool)Session["adminLoggedIn"];
+
+      if (Request.Form.Count == 0)
+        return View();
+      else
+      {
+        club_event newEvt = new club_event
+        { name = Request["name"], description = Request["description"], location = Request["location"] };
+
+        string dateTimeStr = Request["schedule_time"];
+        newEvt.schedule_time = Convert.ToDateTime(dateTimeStr);
+        edb.club_event.Add(newEvt);
+        edb.SaveChanges();
+
+        return Events();
       }
     }
 

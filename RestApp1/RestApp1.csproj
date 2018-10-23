@@ -196,6 +196,7 @@
     <Compile Include="Controllers\AnnouncementsController.cs" />
     <Compile Include="Controllers\BSSandboxController.cs" />
     <Compile Include="Controllers\ClubController.cs" />
+    <Compile Include="Controllers\club_eventController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -248,11 +249,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-datepicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\3d2.JPG" />
     <Content Include="Images\3d3.JPG" />
+    <Content Include="Images\3ds.JPG" />
     <Content Include="Models\SalesModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SalesModel.edmx</DependentUpon>
@@ -300,6 +303,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-datepicker.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -321,6 +325,7 @@
     <Content Include="Views\Club\Events.cshtml" />
     <Content Include="Views\Club\JoinUs.cshtml" />
     <Content Include="Views\Club\NewAnnouncement.cshtml" />
+    <Content Include="Views\Club\NewEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

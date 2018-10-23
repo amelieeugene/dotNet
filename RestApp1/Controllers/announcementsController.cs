@@ -123,8 +123,27 @@ namespace RestApp1.Controllers
         return NotFound();
       }
 
-      db.announcements.Remove(announcement);
-      db.SaveChanges();
+      announcement.status = "Inactive";
+      db.Entry(announcement).State = EntityState.Modified;
+
+      try
+      {
+        db.SaveChanges();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!announcementExists(id))
+        {
+          return NotFound();
+        }
+        else
+        {
+          throw;
+        }
+      }
+      //db.announcements.Remove(announcement);
+
+      //db.SaveChanges();
 
       return Ok(announcement);
     }

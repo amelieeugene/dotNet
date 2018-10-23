@@ -5,23 +5,43 @@
   Layout = "~/Views/Shared/_Layout3DClub.cshtml";
 }
 
-<h2>Club Events</h2>
+<div class="club-content">
+  <h2>Club Events</h2>
 
-Upcoming Events
-@foreach (RestApp1.Models.club_event evnt in Model.Upcoming_events)
-{
-  @evnt.name
+  Upcoming Events
+  @foreach (RestApp1.Models.club_event evnt in Model.Upcoming_events)
+  {
+  <div class="well" id="evt_@evnt.ID_event">
+    <h6 class="text-right">
+      @evnt.schedule_time
+    </h6>
+    <h6 class="text-right">
+      @evnt.location
+    </h6>
+    <h2 style="color:#1b2e3f">@evnt.name</h2>
+    <P>@evnt.description</P>
+  </div>
+
+  }
+
   <br />
-}
 
-<br />
+  Past Events
+  @foreach (RestApp1.Models.club_event evnt in Model.Past_events)
+  {
+  <div class="well" id="evt_@evnt.ID_event" style="background-color:cadetblue">
+    <h6 class="text-right">
+      @evnt.schedule_time
+    </h6>
+    <h6 class="text-right">
+      @evnt.location
+    </h6>
+    <h2 style="color:#1b2e3f">@evnt.name</h2>
+    <P>@evnt.description</P>
+  </div>
+   
+  }
 
-@foreach (RestApp1.Models.club_event evnt in Model.Past_events)
-{
-  @evnt.name
-  <br />
-}
-
-Past Events
 
 
+</div>

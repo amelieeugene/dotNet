@@ -5,57 +5,7 @@
   Layout = "~/Views/Shared/_Layout3DClub.cshtml";
 }
 
-<style type="text/css">
-  /* Some custom styles to beautify this example */
-  .club-vert-bar {
-    padding: 15px;
-    font-size: 18px;
-    min-height: 300px;
-    background-color: #7ba08f;
-    margin-bottom: 10px;
-    border-radius: .35rem;
-    color: cornsilk
-  }
 
-  .club-content {
-    padding: 15px;
-    font-size: 18px;
-    min-height: 300px;
-    /*background: #dbdfe5;*/
-    margin-bottom: 10px;
-    background-color: #b4edd2;
-    border-radius: .35rem;
-  }
-</style>
-
-
-
-<div class="jumbotron container-fluid clubHeader">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6">
-        <img src="~/Images/3d3.JPG" alt="3D Modeling & Printing Club" />
-      </div>
-      <div class="col-lg-6">
-        @*<i style="font-size:large; color:darkred">Camas High school</i>
-          <h1 style="margin-top:5px; color:darkred"><i>3D Modeling & Printing Club</i></h1>*@
-        <p style="color:#230f02">
-          Here at the <span class="text-capitalize" style="color:firebrick; font-stretch:wider">CHS 3D Modeling and Printing Club</span>, we'll explore the growing world of 3D designing.
-          This student run club boosts interest in STEM fields, and will let students meet others with similar interests.
-          3D Modeling covers more than just printable models! We also offer 3D scanning software, graphic designing, and animation software.
-          We have printers, computers, and software to our disposal and all levels are welcome!
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-
-    <div class="col-sm-9">
       <div class="club-content">
         Announcements
         <div>
@@ -73,42 +23,7 @@
           }
         </div>
       </div>
-    </div>
-    <div class="col-sm-3 ">
-      <div class="club-vert-bar">
-        <dl>
-          <dt>
-            <span style="color:white">Where:</span>
-          </dt>
-          <dd class="col-sm-offset-1">
-            Room: 504
-          </dd>
-          <dt>
-            <span style="color:white">Date:</span>
-          </dt>
-          <dd class="col-sm-offset-1">
-            Thursdays
-          </dd>
-          <dt>
-            <span style="color:white">Time:</span>
-          </dt>
-          <dd class="col-sm-offset-1">
-            Makertime
-          </dd>
-          <dt>
-            <span style="color:white">Advisor:</span>
-          </dt>
-          <dd class="col-sm-offset-1">
-            Kelly Williams
-          </dd>
-        </dl>
-
-      </div>
-    </div>
-
-
-  </div>
-</div>
+   
 
 <script type="text/javascript">
   var anno_ID_delete;
@@ -141,7 +56,7 @@
   function AnnoucementDeleted(data) {
     var elementId = "anno_" + anno_ID_delete;
     $("#" + elementId).remove();
-    alert("The announcement is deleted successfully");
+    //alert("The announcement is deleted successfully");
   }
 
   function deleteFailed(data) {

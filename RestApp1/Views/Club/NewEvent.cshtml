@@ -1,0 +1,52 @@
+﻿@model RestApp1.Models.club_event
+
+@{
+  ViewBag.Title = "New Event";
+  Layout = "~/Views/Shared/_Layout3DClub.cshtml";
+}
+<link href="~/Content/jquery-datepicker.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-datepicker.js"></script>
+
+<div class="club-content">
+  <h2>Add a New Event</h2>
+
+  <div>
+    <form action="~/Club/NewEvent" method="POST">
+      <div class="form-group">
+        <label for="inputName">Event name</label>
+        <input type="text" class="form-control" name="name" id="inputName" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="inputSchedule_time">Event date</label>
+        @*<input type="text" class="form-control" name="schedule_time" id="inputSchedule_time" placeholder="" required>*@
+        <div class="jquery-datepicker">
+          <input type="text" class="jquery-datepicker__input" name="schedule_time" id="inputSchedule_time" placeholder="" required>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="inputLocation">Location</label>
+        <input type="text" class="form-control" name="location" id="inputLocation" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="txtDescription">Description</label>
+        <textarea name="description" id="txtDescription" class="form-control" rows="6" cols="80" placeholder="" required maxlength="500"></textarea>
+        @*<input type="text"  class="form-control" name="detail" id="inputAnnDetail" placeholder="" required>*@
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="button" id="btnCancel" class="btn btn-default">Cancel</button>
+    </form>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  $("#btnCancel").click(function () {
+    if (confirm("Discard the new event?"))
+      window.location.replace("");
+  });
+
+  $('.jquery-datepicker').datepicker({ format: 'mmddyy' });
+
+
+</script>

@@ -1,32 +1,36 @@
 ﻿@model RestApp1.Models.announcement
 
 @{
-    ViewBag.Title = "New Announcement";
-    Layout = "~/Views/Shared/_Layout3DClub.cshtml";
+  ViewBag.Title = "New Announcement";
+  Layout = "~/Views/Shared/_Layout3DClub.cshtml";
 }
 
-<h2>Add a New Announcement</h2>
+<div class="club-content">
+  <h2>Add a New Announcement</h2>
 
-<div >
-  <form action="~/Club/NewAnnouncement" method="POST">
-    <div class="form-group">
-      <label for="inputTopic">Topic</label>
-      <input type="text" class="form-control" name="topic" id="inputTopic" placeholder="" required>
-    </div>
-    <div class="form-group">
-      <label for="inputAnnDetail">Detail</label>
-      <input type="text" class="form-control" name="detail" id="inputAnnDetail" placeholder="" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Add</button>
-    <button type="button" id="btnCancel" class="btn btn-default">Cancel</button>
-  </form>
-</div>
+  <div>
+    <form action="~/Club/NewAnnouncement" method="POST">
+      <div class="form-group">
+        <label for="inputTopic">Topic</label>
+        <input type="text" class="form-control" name="topic" id="inputTopic" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="inputAnnDetail">Detail</label>
+        <textarea name="detail" id="txtAnnDetail" class="form-control" rows="6" cols="80" placeholder="" required maxlength="500"></textarea>
+        @*<input type="text"  class="form-control" name="detail" id="inputAnnDetail" placeholder="" required>*@
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="button" id="btnCancel" class="btn btn-default">Cancel</button>
+    </form>
+  </div>
 
-<script type="text/javascript">
-  $("#btnCancel").click(function () {
-    if (confirm("Discard the new announcement?"))
-      window.location.replace("");
-  });
+  </div>
 
-</script>
+  <script type="text/javascript">
+    $("#btnCancel").click(function () {
+      if (confirm("Discard the new announcement?"))
+        window.location.replace("");
+    });
+
+  </script>
 

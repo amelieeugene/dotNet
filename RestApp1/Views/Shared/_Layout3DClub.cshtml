@@ -8,6 +8,7 @@
   @Scripts.Render("~/bundles/modernizr")
   @Scripts.Render("~/bundles/jquery")
   @Scripts.Render("~/bundles/bootstrap")
+  
 
   <style type="text/css">
     .club-nav {
@@ -27,6 +28,26 @@
       padding-bottom: 10px;
       background-color: #b7b7b7;
     }
+
+    .club-vert-bar {
+      padding: 15px;
+      font-size: 18px;
+      min-height: 300px;
+      background-color: #7ba08f;
+      margin-bottom: 10px;
+      border-radius: .35rem;
+      color: cornsilk
+    }
+
+    .club-content {
+      padding: 15px;
+      font-size: 18px;
+      min-height: 300px;
+      /*background: #dbdfe5;*/
+      margin-bottom: 10px;
+      background-color: #b4edd2;
+      border-radius: .35rem;
+    }
   </style>
 </head>
 <body>
@@ -36,10 +57,11 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          
+
           @if (ViewBag.IsAdmin)
           {
-          <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           }
         </button>
         @Html.ActionLink("Club Home", "Index", "Club", new { area = "" }, new { @class = "navbar-brand club-home" })
@@ -50,7 +72,8 @@
           <li>@Html.ActionLink("Join Us", "JoinUs", "Club", new { area = "" }, null)</li>
           @if (ViewBag.IsAdmin)
           {
-          <li>@Html.ActionLink("New Announcement", "NewAnnouncement", "Club", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("New Announcement", "NewAnnouncement", "Club", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("New Event", "NewEvent", "Club", new { area = "" }, null)</li>
           }
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -89,9 +112,66 @@
     </div>
   </div>
 
-  <div>
-    @RenderBody()
+  <div class="jumbotron container-fluid clubHeader">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 text-center">
+          <img src="~/Images/3ds.JPG" alt="3D Modeling & Printing Club" />
+        </div>
+        <div class="col-sm-8">
+          @*<i style="font-size:large; color:darkred">Camas High school</i>
+            <h1 style="margin-top:5px; color:darkred"><i>3D Modeling & Printing Club</i></h1>*@
+          <p style="color:#230f02">
+            Here at the <span class="text-capitalize" style="color:firebrick; font-stretch:wider">CHS 3D Modeling and Printing Club</span>, we'll explore the growing world of 3D designing.
+            This student run club boosts interest in STEM fields, and will let students meet others with similar interests.
+            3D Modeling covers more than just printable models! We also offer 3D scanning software, graphic designing, and animation software.
+            We have printers, computers, and software to our disposal and all levels are welcome!
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9">
+        @RenderBody()
+      </div>
+      <div class="col-sm-3 ">
+        <h4>Club Meetings</h4>
+        <div class="club-vert-bar">
+          <dl>
+            <dt>
+              <span style="color:white">Where:</span>
+            </dt>
+            <dd class="col-sm-offset-1">
+              Room: 504
+            </dd>
+            <dt>
+              <span style="color:white">Date:</span>
+            </dt>
+            <dd class="col-sm-offset-1">
+              Thursdays
+            </dd>
+            <dt>
+              <span style="color:white">Time:</span>
+            </dt>
+            <dd class="col-sm-offset-1">
+              Makertime
+            </dd>
+            <dt>
+              <span style="color:white">Advisor:</span>
+            </dt>
+            <dd class="col-sm-offset-1">
+              Kelly Williams
+            </dd>
+          </dl>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
   <hr />
   <footer style="text-align: center; color:dimgray">
     <p>&copy; @DateTime.Now.Year/@DateTime.Now.Month - CHS 3D Modeling/Printing</p>
