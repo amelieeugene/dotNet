@@ -211,6 +211,9 @@
     <Compile Include="Models\club_event.cs">
       <DependentUpon>SalesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\club_member.cs">
+      <DependentUpon>SalesModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\customer.cs">
       <DependentUpon>SalesModel.tt</DependentUpon>
     </Compile>
@@ -323,9 +326,10 @@
     <Content Include="Views\Shared\_Layout3DClub.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
     <Content Include="Views\Club\Events.cshtml" />
-    <Content Include="Views\Club\JoinUs.cshtml" />
     <Content Include="Views\Club\NewAnnouncement.cshtml" />
     <Content Include="Views\Club\NewEvent.cshtml" />
+    <Content Include="Views\Club\AboutUs.cshtml" />
+    <Content Include="Views\Club\JoinUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

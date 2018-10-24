@@ -26,7 +26,7 @@
     .clubHeader {
       padding-top: 10px;
       padding-bottom: 10px;
-      background-color: #b7b7b7;
+      background-color: white; /* #b7b7b7 ;*/
     }
 
     .club-vert-bar {
@@ -57,7 +57,7 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-
+          <span class="icon-bar"></span>
           @if (ViewBag.IsAdmin)
           {
             <span class="icon-bar"></span>
@@ -68,6 +68,7 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
+          <li>@Html.ActionLink("About Us", "AboutUs", "Club", new { area = "" }, null)</li>
           <li>@Html.ActionLink("Events", "Events", "Club", new { area = "" }, null)</li>
           <li>@Html.ActionLink("Join Us", "JoinUs", "Club", new { area = "" }, null)</li>
           @if (ViewBag.IsAdmin)
@@ -96,11 +97,11 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="inputEmail">Admin User ID</label>
-              <input type="text" class="form-control" name="adminUserId" id="adminUserId" placeholder="adminUserId" required>
+              <input type="text" class="form-control" name="adminUserId" id="adminUserId" placeholder="" required>
             </div>
             <div class="form-group">
               <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" name="adminPassword" id="adminPassword" placeholder="Password" required>
+              <input type="password" class="form-control" name="adminPassword" id="adminPassword" placeholder="" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -112,33 +113,20 @@
     </div>
   </div>
 
-  <div class="jumbotron container-fluid clubHeader">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-4 text-center">
-          <img src="~/Images/3ds.JPG" alt="3D Modeling & Printing Club" />
-        </div>
-        <div class="col-sm-8">
-          @*<i style="font-size:large; color:darkred">Camas High school</i>
-            <h1 style="margin-top:5px; color:darkred"><i>3D Modeling & Printing Club</i></h1>*@
-          <p style="color:#230f02">
-            Here at the <span class="text-capitalize" style="color:firebrick; font-stretch:wider">CHS 3D Modeling and Printing Club</span>, we'll explore the growing world of 3D designing.
-            This student run club boosts interest in STEM fields, and will let students meet others with similar interests.
-            3D Modeling covers more than just printable models! We also offer 3D scanning software, graphic designing, and animation software.
-            We have printers, computers, and software to our disposal and all levels are welcome!
-          </p>
-        </div>
-      </div>
-    </div>
+  <div class="jumbotron clubHeader text-center">
+    @*<div class="container-fluid">
+      <div class="row">*@      
+          <img src="~/Images/3d2.JPG" alt="3D Modeling & Printing Club" style="max-width:100%; max-height:100%"/>
+      @*</div>
+    </div>*@
   </div>
-
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin-top: -35px;">
     <div class="row">
-      <div class="col-sm-9">
+      <div class="col-sm-8">
         @RenderBody()
       </div>
-      <div class="col-sm-3 ">
-        <h4>Club Meetings</h4>
+      <div class="col-sm-4">
+        <h4>Club Info</h4>
         <div class="club-vert-bar">
           <dl>
             <dt>
@@ -158,6 +146,18 @@
             </dt>
             <dd class="col-sm-offset-1">
               Makertime
+            </dd>
+            <dt>
+              <span style="color:white">Contact:</span>
+            </dt>
+            <dd class="col-sm-offset-1">
+              Amelie Chen
+            </dd>
+            <dt>
+              <span style="color:white">Contact Email:</span>
+            </dt>
+            <dd class="col-sm-offset-1">
+              amelie.chen@csd117.org
             </dd>
             <dt>
               <span style="color:white">Advisor:</span>

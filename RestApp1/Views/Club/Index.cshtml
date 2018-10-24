@@ -13,8 +13,16 @@
           {
             <div class="well" id="anno_@anno.ID_announcement">
               <h6 class="text-right">
-                @anno.announceTime @if (Model.IsAdmin)
-              {<a href="javascript:deleteAnnouncement('@anno.ID_announcement')"><span class="glyphicon glyphicon-remove-sign" style="font-size:medium; color:darkred"></span></a>}
+                @anno.announceTime
+                @if (Model.IsAdmin)
+                {
+                  <a href="javascript:deleteAnnouncement('@anno.ID_announcement')">
+                    <span class="glyphicon glyphicon-remove-sign" style="font-size:medium; color:darkred"></span>
+                  </a>
+                  <a href="@Request.ApplicationPath/Club/EditAnnouncement?annoID=@anno.ID_announcement">
+                    <span class="glyphicon glyphicon-pencil" style="font-size:medium; color:darkblue"></span>
+                  </a>
+                }
               </h6>
               <h2 style="color:#1b2e3f">@anno.topic</h2>
               <P>@anno.detail</P>
@@ -31,7 +39,12 @@
   $(document).ready(function () {
 
     // $.ajax({ type: 'GET', url: '/api/Announcements', success: gotAnnoucements });
+    var JoinSuccess = "@ViewBag.JoinSuccess";
 
+    if (JoinSuccess == "true")
+    {
+      alert("Thank you for joining the club.");
+    }
 
   });
 

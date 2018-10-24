@@ -46,28 +46,87 @@ namespace RestApp1.Controllers
       return View("Events", clubModel);
     }
 
-    public ActionResult JoinUs()
+    public ActionResult JoinUs(club_member cm)
+    {
+      ViewBag.IsAdmin = (bool)Session["adminLoggedIn"];
+
+      if (cm.firstName == null)
+        return View();
+      else
+      {
+        if (ModelState.IsValid)
+        {
+          cm.joinDate = DateTime.Now.Date;
+          cm.status = "Pending";
+          edb.club_member.Add(cm);
+          edb.SaveChanges();
+
+          ViewBag.JoinSuccess = "true";
+          return GetClubHomeView();
+        }
+        else
+        {
+          ViewBag.JoinSuccess = null;
+          return View(cm);
+        }
+        
+      }
+    }
+
+    public ActionResult AboutUs()
     {
       ViewBag.IsAdmin = (bool)Session["adminLoggedIn"];
       return View();
     }
 
-    public ActionResult NewAnnouncement()
+
+    public ActionResult NewAnnouncement(announcement anno)
     {
       ViewBag.IsAdmin = (bool)Session["adminLoggedIn"];
 
       if (Request.Form.Count == 0)
-        return View();
+      {
+        return View(new announcement());
+      }
       else
       {
-        announcement newAnno = new announcement
-        { topic = Request["topic"], detail = Request["detail"] };
-        newAnno.announceTime = DateTime.Now;
-        edb.announcements.Add(newAnno);
-        edb.SaveChanges();
+        if (anno.ID_announcement == 0)
+        {
+          announcement newAnno = new announcement
+          { topic = Request["topic"], detail = Request["detail"] };
+          newAnno.announceTime = DateTime.Now;
+          newAnno.status = "Active";
+          edb.announcements.Add(newAnno);
+          edb.SaveChanges();
+        }
+        else
+        {
+          int ID_announcement = anno.ID_announcement;
+
+          var annoUpdate = edb.announcements
+            .Where(aa => aa.ID_announcement == ID_announcement)
+            .Single();
+
+          annoUpdate.detail = anno.detail;
+          annoUpdate.topic = anno.topic;
+
+          edb.SaveChanges();
+
+        }
 
         return GetClubHomeView();
       }
+    }
+
+    public ActionResult EditAnnouncement(int annoID)
+    {
+      ViewBag.IsAdmin = (bool)Session["adminLoggedIn"];
+
+      announcement anno = (from ann in edb.announcements
+                           where ann.ID_announcement == annoID
+                           select ann).FirstOrDefault();
+
+      return View("NewAnnouncement", anno);
     }
 
     public ActionResult NewEvent()
@@ -125,6 +184,7 @@ namespace RestApp1.Controllers
     private ActionResult GetClubHomeView()
     {
       var anns = (from ann in edb.announcements
+                  where ann.status == "Active"
                   select ann).ToList();
 
       ClubModel clubModel = new ClubModel();

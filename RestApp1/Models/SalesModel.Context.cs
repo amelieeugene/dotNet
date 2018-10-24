@@ -18,7 +18,8 @@ namespace RestApp1.Models
         public sandboxEntities()
             : base("name=sandboxEntities")
         {
-        }
+      this.Configuration.ProxyCreationEnabled = false;
+    }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,5 +33,6 @@ namespace RestApp1.Models
         public virtual DbSet<item> items { get; set; }
         public virtual DbSet<announcement> announcements { get; set; }
         public virtual DbSet<club_event> club_event { get; set; }
+        public virtual DbSet<club_member> club_member { get; set; }
     }
 }

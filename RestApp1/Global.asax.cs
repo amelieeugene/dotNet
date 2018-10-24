@@ -24,6 +24,9 @@ namespace RestApp1
       config.Formatters.JsonFormatter
                   .SerializerSettings
                   .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+      //config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+      config.Formatters.Remove(config.Formatters.XmlFormatter);
     }
 
     protected void Session_Start(object sender, EventArgs e)
