@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "BITest", "BITest\BITest.rptproj", "{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.Debug|Default.ActiveCfg = Debug
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.Debug|Default.Build.0 = Debug
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.Debug|Default.Deploy.0 = Debug
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.DebugLocal|Default.Build.0 = DebugLocal
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.Release|Default.ActiveCfg = Release
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.Release|Default.Build.0 = Release
+		{C04DCCE2-AB27-4F74-AFD7-9506CB2CAF8C}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {319FC01E-8343-4A2E-8690-FC3DBDFDBDB8}
+	EndGlobalSection
+EndGlobal

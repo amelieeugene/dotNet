@@ -193,6 +193,8 @@ namespace RestApp1.Controllers
 
       ViewBag.IsAdmin = clubModel.IsAdmin;
 
+      ViewBag.rootPath = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"));
+
       return View("Index", clubModel);
     }
   }

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>SELECT
+  Sales.vSalesPersonSalesByFiscalYears.FullName
+  ,Sales.vSalesPersonSalesByFiscalYears.JobTitle
+  ,Sales.vSalesPersonSalesByFiscalYears.SalesTerritory
+  ,Sales.vSalesPersonSalesByFiscalYears.[2002]
+  ,Sales.vSalesPersonSalesByFiscalYears.[2003]
+  ,Sales.vSalesPersonSalesByFiscalYears.[2004]
+  ,Sales.vSalesPersonSalesByFiscalYears.SalesPersonID
+FROM
+  Sales.vSalesPersonSalesByFiscalYears</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+          <SelectedColumns>
+            <ColumnExpression Schema="Sales" ColumnOwner="vSalesPersonSalesByFiscalYears" ColumnName="FullName" />
+            <ColumnExpression Schema="Sales" ColumnOwner="vSalesPersonSalesByFiscalYears" ColumnName="JobTitle" />
+            <ColumnExpression Schema="Sales" ColumnOwner="vSalesPersonSalesByFiscalYears" ColumnName="SalesTerritory" />
+            <ColumnExpression Schema="Sales" ColumnOwner="vSalesPersonSalesByFiscalYears" ColumnName="2002" />
+            <ColumnExpression Schema="Sales" ColumnOwner="vSalesPersonSalesByFiscalYears" ColumnName="2003" />
+            <ColumnExpression Schema="Sales" ColumnOwner="vSalesPersonSalesByFiscalYears" ColumnName="2004" />
+            <ColumnExpression Schema="Sales" ColumnOwner="vSalesPersonSalesByFiscalYears" ColumnName="SalesPersonID" />
+          </SelectedColumns>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="FullName">
+        <DataField>FullName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="JobTitle">
+        <DataField>JobTitle</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalesTerritory">
+        <DataField>SalesTerritory</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ID2002">
+        <DataField>2002</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ID2003">
+        <DataField>2003</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ID2004">
+        <DataField>2004</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="SalesPersonID">
+        <DataField>SalesPersonID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

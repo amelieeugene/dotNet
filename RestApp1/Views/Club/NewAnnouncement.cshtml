@@ -30,7 +30,11 @@
 
   <script type="text/javascript">
     $("#btnCancel").click(function () {
-      if (confirm("Discard the new announcement?"))
+      var confirmMsg = "Discard the new announcement?";
+      if (@Model.ID_announcement != 0)
+        confirmMsg = "Discard the change?";
+      
+      if (confirm(confirmMsg))
         window.location.replace("");
     });
 

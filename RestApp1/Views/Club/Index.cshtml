@@ -19,7 +19,7 @@
                   <a href="javascript:deleteAnnouncement('@anno.ID_announcement')">
                     <span class="glyphicon glyphicon-remove-sign" style="font-size:medium; color:darkred"></span>
                   </a>
-                  <a href="@Request.ApplicationPath/Club/EditAnnouncement?annoID=@anno.ID_announcement">
+                  <a href="~/Club/EditAnnouncement?annoID=@anno.ID_announcement">
                     <span class="glyphicon glyphicon-pencil" style="font-size:medium; color:darkblue"></span>
                   </a>
                 }
@@ -59,7 +59,7 @@
       anno_ID_delete = annID;
 
       $.ajax({
-        type: 'DELETE', url: "@Request.ApplicationPath" + '/api/announcements/' + annID, success: AnnoucementDeleted, error: deleteFailed
+        type: 'DELETE', url: "@ViewBag.rootPath" + 'api/announcements/' + annID, success: AnnoucementDeleted, error: deleteFailed
       });
     }
     else
