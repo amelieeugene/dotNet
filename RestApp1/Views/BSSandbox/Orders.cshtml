@@ -1,0 +1,36 @@
+﻿@model List<RestApp1.Models.order>
+
+<div>
+
+  <table class="table table-bordered table-condensed">
+
+    <tr>
+
+      <th>ID</th>
+      <th>orderDate</th>
+      <th>MVC Ajax Action</th>
+    </tr>
+
+    @foreach (RestApp1.Models.order order in Model)
+
+    {
+
+      <tr id="tr@(order.id)">
+        <td>
+          @Html.ActionLink(String.Format("{0} {1}", order.id, order.id_customer), "Details", new { id = order.id })
+        </td>
+        <td>
+          @order.orderDate
+        </td>
+        <td>
+          @Ajax.ActionLink("Details", "Detail", new { id = order.id }, new AjaxOptions() { UpdateTargetId = "details" }) |
+          @Ajax.ActionLink("Delete", "DeleteOrder", new { id = order.id }, new AjaxOptions() { UpdateTargetId = "tr" + order.id, HttpMethod = "POST" })
+
+        </td>
+      </tr>
+    }
+  </table>
+</div>
+
+<div id="details">
+</div>

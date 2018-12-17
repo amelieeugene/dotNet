@@ -1,0 +1,88 @@
+﻿@using EmployeeMaintenance.Models;
+@using EmployeeMaintenance.Models.Enums;
+@model Employee
+
+@{
+    ViewBag.Title = "details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css {
+    <style>
+        .dl-horizontal dt {
+            white-space: normal;
+        }
+    </style>
+}
+<h2>Employee Edit</h2>
+
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.EmployeeId)
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+
+            <dd>
+                @Html.EditorFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.EditorFor(model => model.LastName)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Department)
+            </dt>
+
+            <dd>
+                @*@Html.DropDownListFor(model => model.DepartmentId, ViewData["DepartmentListItems"] as IEnumerable<SelectListItem>,"Select")*@
+                @*@Html.DropDownList("DepartmentId", ViewBag.DepartmentListItems as IEnumerable<SelectListItem>, "Select")*@
+                @*@Html.DropDownList("DepartmentId", new SelectList(ViewBag.DepartmentList, "DepartmentId","DepartmentName", Model.DepartmentId), "Select")*@
+                @*@Html.DropDownList("DepartmentId","Select")*@
+                @*@Html.EditorFor(model => model.DepartmentId)*@
+
+                @Html.EnumDropDownListFor(model => model.DepartmentEnum,"Select")
+
+                @Html.DropDownListFor(model => model.DepartmentId,EnumHelper.GetSelectList(typeof(Departments)), "Select")
+
+                @Html.DropDownList("DepartmentId","Select")
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </dd>
+    </dl>
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+}
+<p>
+    @Html.ActionLink("Back to List", "GetEmployeeSummary")
+</p>
